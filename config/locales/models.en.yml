@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    models:
+      admin: 
+        one: Administrator
+        other: Administrators
+      profile: 
+        one: Profile
+        other: Profiles
+    attributes:
+      admin:
+        id: Code
+        email: Email
+        created_at: Created at
+        updated_at: Updated at
+      profile:
+        id: Code
+        email: Email
+        created_at: Created at
+        updated_at: Updated at
