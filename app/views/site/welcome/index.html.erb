@@ -1,2 +1,16 @@
 <h1>Site::Welcome#index</h1>
 <p>Find me in app/views/site/welcome/index.html.erb</p>
+
+<p>
+  User logado?
+  <strong><%= user_signed_in? %></strong>
+</p>
+<p>
+  User logado?
+  <strong><%= admin_signed_in? %></strong>
+</p>
+
+<%= link_to "Log in ADM", new_admin_session_path %>
+<br>
+<%= link_to "Log in USER", new_user_session_path %>
+
