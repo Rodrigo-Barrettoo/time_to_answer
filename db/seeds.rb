@@ -16,6 +16,14 @@ admin_users = [
   },
 ]
 
+10.times do |i|
+  admin_users.push({
+    email: Faker::Internet.email,
+    password: DEFAULT_PASSWORD,
+    password_confirmation: DEFAULT_PASSWORD,
+  })
+end
+
 admin_users.each do |admin_user|
   Admin.create!(admin_user)
 end
