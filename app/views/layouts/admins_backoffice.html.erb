@@ -43,14 +43,16 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+      
+        <%= link_to admins_backoffice_welcome_index_path, class: "nav-link" do %>
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
-        </a>
-        <a class="nav-link" href="index.html">
+        <% end %>
+        <%= link_to admins_backoffice_admins_index_path, class: "nav-link" do %>
           <i class="fas fa-users"></i>
           <span>Administradores</span>
-        </a>
+        <% end %>
+
       </li>
 
       <!-- Divider -->
