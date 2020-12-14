@@ -1,1 +1,29 @@
-<h1>Admins</h1>
+<h1>Listando Administradores</h1>
+
+<table class="table table-bordered table-hover scroll">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col" colspan="1">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admins.each do |admin| %>
+    <tr>
+      <th scope="row"><%= admin.id %></th>
+      <td><%= admin.email %></td>
+
+      <td class="col-1">
+        <a href="#" class="btn btn-primary btn-circle">
+          <i class="fas fa-edit"></i>
+        </a>
+
+        <a href="#" class="btn btn-danger btn-circle">
+          <i class="fas fa-trash"></i>
+        </a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
