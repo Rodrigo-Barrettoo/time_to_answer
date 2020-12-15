@@ -1,0 +1,48 @@
+<h1>Listando Assuntos e Áreas</h1>
+
+<hr>
+
+<div class="d-flex justify-content-end pb-3">
+  <%= link_to new_admins_backoffice_subject_path, class: "btn btn-secondary btn-icon-split" do %>
+    <span class="icon text-white-50">
+      <i class="fas fa-plus text-white"></i>
+    </span>
+    <span class="text">Novo Assunto/Área</span>
+  <% end %>
+</div>
+
+<table class="table table-bordered table-hover scroll">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Descrição</th>
+      <th scope="col" colspan="1">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+    <tr>
+      <th scope="row"><%= subject.id %></th>
+      <td><%= subject.description %></td>
+
+      <td class="col-1">
+        <%= link_to edit_admins_backoffice_subject_path(subject), class:"btn btn-primary" do %>
+          <i class="fas fa-pen"></i>
+        <% end %> 
+
+        <%= link_to admins_backoffice_subject_path(subject),
+          method: :delete, 
+          class:"btn btn-danger",
+          data: {confirm: "Deseja realmente excluir este assunto/área?"} do 
+        %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @subjects %>
+</div>
