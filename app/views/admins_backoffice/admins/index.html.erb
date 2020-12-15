@@ -2,6 +2,15 @@
 
 <hr>
 
+<div class="d-flex justify-content-end pb-3">
+  <%= link_to new_admins_backoffice_admin_path, class: "btn btn-secondary btn-icon-split" do %>
+    <span class="icon text-white-50">
+      <i class="fas fa-user-plus text-white"></i>
+    </span>
+    <span class="text">Novo Administrador</span>
+  <% end %>
+</div>
+
 <table class="table table-bordered table-hover scroll">
   <thead>
     <tr>
@@ -17,13 +26,13 @@
       <td><%= admin.email %></td>
 
       <td class="col-1">
-        <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle" do %>
-          <i class="fas fa-edit"></i>
+        <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary" do %>
+          <i class="fas fa-pen"></i>
         <% end %> 
 
-        <a href="#" class="btn btn-danger btn-circle">
+        <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-danger" do %>
           <i class="fas fa-trash"></i>
-        </a>
+        <% end %>
       </td>
     </tr>
     <% end %>
