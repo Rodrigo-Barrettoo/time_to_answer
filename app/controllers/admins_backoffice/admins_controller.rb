@@ -14,7 +14,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
     @admin = Admin.new(params_admin)
 
     if @admin.save()
-      redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso!"
+      redirect_to admins_backoffice_admins_path, notice: "Administrador cadastrado com sucesso!"
       else
         render :new
     end
@@ -26,7 +26,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
 
   def update
     if @admin.update(params_admin)
-      redirect_to admins_backoffice_admins_path, notice: "Administrador cadastrado com sucesso!"
+      redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso!"
       else
         render :edit
     end
