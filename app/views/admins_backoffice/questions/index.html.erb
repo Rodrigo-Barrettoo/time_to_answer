@@ -1,0 +1,50 @@
+<h1>Listando Perguntas</h1>
+
+<hr>
+
+<div class="d-flex justify-content-end pb-3">
+  <%= link_to new_admins_backoffice_question_path, class: "btn btn-secondary btn-icon-split" do %>
+    <span class="icon text-white-50">
+      <i class="fas fa-plus text-white"></i>
+    </span>
+    <span class="text">Nova Pergunta</span>
+  <% end %>
+</div>
+
+<table class="table table-bordered table-hover scroll">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Assunto</th>
+      <th scope="col" colspan="1">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+    <tr>
+      <th scope="row"><%= question.id %></th>
+      <td><%= question.description.truncate(80) %></td>
+      <td><%= question.subject.description %></td>
+
+      <td class="col-1">
+        <%= link_to edit_admins_backoffice_question_path(question), class:"btn btn-primary" do %>
+          <i class="fas fa-pen"></i>
+        <% end %> 
+
+        <%= link_to admins_backoffice_question_path(question),
+          method: :delete, 
+          class:"btn btn-danger",
+          data: {confirm: "Deseja realmente excluir esta pergunta?"} do 
+        %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @questions %>
+</div>
