@@ -1,4 +1,6 @@
-<h1>Listando Administradores</h1>
+<h1>
+  <%= t("titles.list_admins") %>
+</h1>
 
 <hr>
 
@@ -7,7 +9,9 @@
     <span class="icon text-white-50">
       <i class="fas fa-user-plus text-white"></i>
     </span>
-    <span class="text">Novo Administrador</span>
+    <span class="text">
+      <%= t("buttons.button_new_admin") %>
+    </span>
   <% end %>
 </div>
 
@@ -33,7 +37,7 @@
         <%= link_to admins_backoffice_admin_path(admin),
           method: :delete, 
           class:"btn btn-danger",
-          data: {confirm: "Deseja realmente excluir este administrador?"} do 
+          data: {confirm: t("messages_confirm.delete_admins")} do 
         %>
           <i class="fas fa-trash"></i>
         <% end %>

@@ -31,3 +31,28 @@
 
 en:
   table_actions: Actions
+  titles:
+    list_admins: Listing Administrators
+    edit_admins: Editing Administrators
+    new_admins: New Administrator
+    list_questions: Listing Questions
+    edit_questions: Editing Question
+    new_questions: New Question
+    list_subjects: Listing Subjects
+    edit_subject: Editing Subject
+    new_subjects: New Subject
+  buttons:
+    button_save: Save
+    button_new_admin: New Administrator
+    button_new_question: New Question
+    button_new_subject: New Subject
+  messages_confirm:
+    delete_admins: Do you really want to delete this administrator?
+    delete_questions: Do you really want to delete this question?
+    delete_subjects: Do you really want to delete this subject?
+  menu_title:
+    admins: Administrators
+    questions: Questions
+    subjects: Subjects
+
+

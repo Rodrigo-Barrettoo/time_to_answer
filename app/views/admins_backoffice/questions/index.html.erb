@@ -1,4 +1,6 @@
-<h1>Listando Perguntas</h1>
+<h1>
+  <%= t("titles.list_questions") %>
+</h1>
 
 <hr>
 
@@ -7,7 +9,9 @@
     <span class="icon text-white-50">
       <i class="fas fa-plus text-white"></i>
     </span>
-    <span class="text">Nova Pergunta</span>
+    <span class="text">
+      <%= t("buttons.button_new_question") %>
+    </span>
   <% end %>
 </div>
 
@@ -35,7 +39,7 @@
         <%= link_to admins_backoffice_question_path(question),
           method: :delete, 
           class:"btn btn-danger",
-          data: {confirm: "Deseja realmente excluir esta pergunta?"} do 
+          data: {confirm: t("messages_confirm.delete_questions")} do 
         %>
           <i class="fas fa-trash"></i>
         <% end %>

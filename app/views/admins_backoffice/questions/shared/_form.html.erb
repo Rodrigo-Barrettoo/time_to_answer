@@ -31,6 +31,8 @@
     <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, class: "form-control") %>
   </div>
 
-  <button type="submit" class="btn btn-primary">Salvar</button>
+  <button type="submit" class="btn btn-primary">
+    <%= t("buttons.button_save") %>
+  </button>
 </div>
 <% end %>

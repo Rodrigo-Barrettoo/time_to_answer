@@ -31,3 +31,26 @@
 
 'pt-BR':
   table_actions: Ações
+  titles:
+    list_admins: Listando Administradores
+    edit_admins: Editando Administrador
+    new_admins: Novo Administrador
+    list_questions: Listando Questões
+    edit_questions: Editando Questão
+    new_questions: Nova Questão
+    list_subjects: Listando Assunto/Área
+    edit_subject: Editando Assunto/Área
+    new_subjects: Novo Assunto/Área
+  buttons:
+    button_save: Salvar
+    button_new_admin: Novo Administrador
+    button_new_question: Nova Questão
+    button_new_subject: Novo Assunto
+  messages_confirm:
+    delete_admins: Deseja realmente excluir este administrador?
+    delete_questions: Deseja realmente excluir está questão?
+    delete_subjects: Deseja realmente excluir este assunto/área?
+  menu_title:
+    admins: Administradores
+    questions: Questões
+    subjects: Assunto/Área

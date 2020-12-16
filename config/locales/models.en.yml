@@ -34,7 +34,7 @@ en:
       question:
         id: Código
         description: Description
-        subject: Assunto
-        subject_id: Assunto
+        subject: Subject
+        subject_id: Subject
         created_at: Created at
         updated_at: Updated at
