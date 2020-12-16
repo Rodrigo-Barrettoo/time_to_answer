@@ -15,8 +15,8 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Email</th>
-      <th scope="col" colspan="1">Ações</th>
+      <th scope="col"> <%= @admins.model.human_attribute_name(:email) %> </th>
+      <th scope="col" colspan="1"> <%= t("table_actions") %> </th>
     </tr>
   </thead>
   <tbody>

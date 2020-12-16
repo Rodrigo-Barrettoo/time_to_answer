@@ -15,8 +15,8 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Descrição</th>
-      <th scope="col" colspan="1">Ações</th>
+      <th scope="col"> <%= @subjects.model.human_attribute_name(:description) %> </th>
+      <th scope="col" colspan="1"> <%= t("table_actions") %> </th>
     </tr>
   </thead>
   <tbody>
