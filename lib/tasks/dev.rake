@@ -30,19 +30,53 @@ namespace :dev do
 
   end
 
-  desc "Adiciona perhuntas e respostas"  
+  desc "Adiciona perguntas e respostas"  
   task add_answers_and_questions: :environment do 
 
     Subject.all.each do |subject|
 
       rand(5..10).times do |i|
-        Question.create!(
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject 
-        )
+        params = create_questions_params(subject = Subject.all.sample)
+        answers_array = params[:question][:answers_attributes]
+
+        add_answers(answers_array)
+        elect_true_answers(answers_array)
+
+        Question.create!(params[:question])
       end
       
     end
 
   end
+
+  private 
+
+  def create_answers_params(correct = false)
+    {
+      description: Faker::Lorem.sentence,
+      correct: correct
+    }
+  end
+
+  def add_answers(answers_array = [])
+    rand(2..5).times do |j|
+      answers_array.push(create_answers_params)
+    end
+  end
+
+  def elect_true_answers(answers_array = [])
+    selected_index = rand(answers_array.size)
+    answers_array[selected_index] = create_answers_params(true)
+  end
+
+  def create_questions_params(subject)
+    { 
+      question: {
+        description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+        subject: subject,
+        answers_attributes: []
+      } 
+    }
+  end
+  
 end
