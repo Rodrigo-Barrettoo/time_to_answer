@@ -20,14 +20,16 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'admin_devise' %>
 
-    <% if notice %>
-      <%= javascript_tag do %>
-        $.bootstrapGrowl("<%= notice %>", {
-          type: 'success', // (null, 'info', 'error', 'success')
-          align: 'right', // ('left', 'right', or 'center')
-          allow_dismiss: true,
-          stackup_spacing: 10 // spacing between consecutively stacked growls.
-        });
+    <% if flash %>
+      <% flash.each do |key, value| %>
+        <%= javascript_tag do %>
+          $.bootstrapGrowl("<%= value %>", {
+            type: 'danger', // (null, 'info', 'error', 'success')
+            align: 'right', // ('left', 'right', or 'center')
+            allow_dismiss: true,
+            stackup_spacing: 10 // spacing between consecutively stacked growls.
+          });
+        <% end %>
       <% end %>
     <% end %>
   </body>
