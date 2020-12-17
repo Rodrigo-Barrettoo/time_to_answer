@@ -1,0 +1,18 @@
+<div class="nested-fields">
+
+  <div class="row d-flex align-items-center">
+    <div class="form-group col-8">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control", rows: 5 %>
+    </div>
+
+    <div class="form-check col-1">
+      <%= f.check_box :correct, class: "form-check-input" %>
+      <%= f.label :correct, class: "form-check-label" %>
+    </div>
+
+    <div class="form-check col-1">
+      <%= link_to_remove_association('Remover', f) %>
+    </div>
+  </div>
+</div>
