@@ -11,14 +11,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application' %>
-    <%= stylesheet_link_tag 'admin_devise' %>
+    <%= stylesheet_link_tag 'user_devise' %>
+
   </head>
 
-  <body>
+  <body class="login">
+
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'admin_devise' %>
+    <%= javascript_include_tag 'user_devise' %>
 
     <% if flash %>
       <% flash.each do |key, value| %>
