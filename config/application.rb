@@ -29,5 +29,6 @@ module TimeToAnswer
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.web_console.permissions = '192.168.0.100'
   end
 end
