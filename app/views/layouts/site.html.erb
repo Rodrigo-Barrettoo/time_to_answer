@@ -71,19 +71,12 @@
 
       <div class="jumbotron text-secondary shadow rounded bg-light">
         <div class="container">
-          <h1>Site::Welcome#index</h1>
-          <p>Find me in app/views/site/welcome/index.html.erb</p>
-          <p>
-            User logado?
-            <strong><%= user_signed_in? %></strong>
-          </p>
-          <p>
-            Admin logado?
-            <strong><%= admin_signed_in? %></strong>
-          </p>
-          <%= link_to "Log in ADM", new_admin_session_path %>
-          <br>
-          <%= link_to "Log in USER", new_user_session_path %>
+          <h3>Ultimas pergutas cadastradas...</h3>
+          <% if params %>
+            <strong>
+              <%= "Resutado para o termo: \"#{params[:term]}\"..." %>
+            </strong>
+          <% end %>
         </div>
       </div>
 
