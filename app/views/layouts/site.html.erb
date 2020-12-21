@@ -69,17 +69,6 @@
         </div>
       </nav>
 
-      <div class="jumbotron text-secondary shadow rounded bg-light">
-        <div class="container">
-          <h3>Ultimas pergutas cadastradas...</h3>
-          <% if params %>
-            <strong>
-              <%= "Resutado para o termo: \"#{params[:term]}\"..." %>
-            </strong>
-          <% end %>
-        </div>
-      </div>
-
       <%= yield %>
 
     </div>

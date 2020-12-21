@@ -1,21 +1,40 @@
-<% @questions.each do |question| %>
-  <div class="card mb-3 text-secondary">
-    <div class="card-header">
-      <h4>
-        <%= question.description %>
-      </h4>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Respostas</h5>
-      <ul>
-        <% question.answers.each do |answer| %>
-          <li>
-            <%= answer.description %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+<div class="jumbotron text-secondary shadow rounded bg-light">
+  <div class="container">
+    <h3>Ultimas pergutas cadastradas...</h3>
+    <% if params[:term] %>
+      <strong>
+        <%= "Resutado para o termo: \"#{params[:term]}\"..." %>
+      </strong>
+    <% end %>
   </div>
+</div>
+
+<% @questions.each do |question| %>
+  <%= form_with url: site_answer_path, local: true do |f| %>
+    <div class="card mb-3 text-secondary">
+      <div class="card-header">
+        <h4>
+          <%= question.description %>
+        </h4>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Respostas</h5>
+        <ul class="list-group list-group-flush">
+          <% question.answers.each do |answer| %>
+            <li class="list-group-item">
+              <label class="d-flex align-items-center">
+                <%= radio_button_tag 'answer', answer.id, class: "form-check-input"  %>
+                <p class="pl-2 m-0"><%= answer.description %></p>
+              </label>
+            </li>
+          <% end %>
+          <li class="list-group-item">
+            <%= f.submit "Responder", class: "btn btn-outline-success" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 <div class="d-flex justify-content-center">
   <%= paginate @questions %>
