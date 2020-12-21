@@ -23,7 +23,11 @@
           <% question.answers.each do |answer| %>
             <li class="list-group-item">
               <label class="d-flex align-items-center">
-                <%= radio_button_tag 'answer', answer.id, class: "form-check-input"  %>
+                <%= radio_button_tag('answer_id',
+                  answer.id,
+                  checked = false,
+                  options = { class: "form-check-input"})
+                %>
                 <p class="pl-2 m-0"><%= answer.description %></p>
               </label>
             </li>
