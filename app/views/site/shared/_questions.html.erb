@@ -10,8 +10,8 @@
 </div>
 
 <% @questions.each do |question| %>
-  <%= form_with url: site_answer_path, local: true do |f| %>
-    <div class="card mb-3 text-secondary">
+  <%= form_with url: site_answer_path do |f| %>
+    <div class="card mb-3 text-secondary" id="submit_<%= question.id%>">
       <div class="card-header">
         <h4>
           <%= question.description %>
@@ -32,8 +32,8 @@
               </label>
             </li>
           <% end %>
-          <li class="list-group-item">
-            <%= f.submit "Responder", class: "btn btn-outline-success" %>
+          <li class="list-group-item pl-0">
+            <%= f.submit "Responder", class: "btn btn-outline-secondary" %>
           </li>
         </ul>
       </div>

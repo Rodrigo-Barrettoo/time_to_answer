@@ -1,0 +1,26 @@
+var element = document.getElementById('submit_<%= @answer.question_id %>');
+
+element.classList.remove("success")
+element.classList.remove("danger")
+
+if (<%= @answer.correct %>) {
+  element.classList.add("success")
+
+  $.bootstrapGrowl("Você Acertou!", {
+    type: 'success', // (null, 'info', 'error', 'success')
+    align: 'right', // ('left', 'right', or 'center')
+    allow_dismiss: true,
+    stackup_spacing: 10 // spacing between consecutively stacked growls.
+  });
+} else {
+  element.classList.add("danger")
+  $.bootstrapGrowl("Você Errou!", {
+    type: 'danger', // (null, 'info', 'error', 'success')
+    align: 'right', // ('left', 'right', or 'center')
+    allow_dismiss: true,
+    stackup_spacing: 10 // spacing between consecutively stacked growls.
+  });
+}
+
+
+
