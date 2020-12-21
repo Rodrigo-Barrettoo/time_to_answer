@@ -26,7 +26,12 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav w-100 ">
+          <ul class="navbar-nav w-100 d-flex align-items-start align-items-sm-start">
+            <li class="nav-item w-25">
+              <h5 class="m-0">
+                <%= link_to "Time to Answers", root_path, class: "nav-link" %>
+              </h5>
+            </li>
             <% unless user_signed_in? %>
               <li class="nav-item">
                 <%= link_to  "Entrar", new_user_session_path, class: "nav-link" %>
