@@ -7,8 +7,8 @@ namespace :dev do
 
     if Rails.env.development?
       puts %x(rails db:drop)
-      puts %x(rails db:create) 
-      puts %x(rails db:migrate) 
+      puts %x(rails db:create)
+      puts %x(rails db:migrate)
       puts %x(rails db:seed)
 
       puts %x(rails dev:add_subjects)
@@ -18,20 +18,20 @@ namespace :dev do
     end
   end
 
-  desc "Adiciona assuntos padrão"  
+  desc "Adiciona assuntos padrão"
   task add_subjects: :environment do
 
-    file_name = 'subjects.txt'    
-    file_path = File.join(DEFAULT_FILES_PATH, file_name)  
+    file_name = 'subjects.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
 
-    File.open(file_path, 'r').each do |line|      
-      Subject.create!(description: line.strip)    
-    end  
+    File.open(file_path, 'r').each do |line|
+      Subject.create!(description: line.strip)
+    end
 
   end
 
-  desc "Adiciona perguntas e respostas"  
-  task add_answers_and_questions: :environment do 
+  desc "Adiciona perguntas e respostas"
+  task add_answers_and_questions: :environment do
 
     Subject.all.each do |subject|
 
@@ -44,12 +44,22 @@ namespace :dev do
 
         Question.create!(params[:question])
       end
-      
+
     end
 
   end
 
-  private 
+  desc "Reseta contador dos assuntos"
+  task reset_subject_counter: :environment do
+
+    Subject.all.each do |subject|
+
+      Subject.reset_counters(subject.id, :questions)
+
+    end
+  end
+
+  private
 
   def create_answers_params(correct = false)
     {
@@ -70,13 +80,13 @@ namespace :dev do
   end
 
   def create_questions_params(subject)
-    { 
+    {
       question: {
         description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
         subject: subject,
         answers_attributes: []
-      } 
+      }
     }
   end
-  
+
 end
