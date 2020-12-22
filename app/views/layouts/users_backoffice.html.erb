@@ -12,9 +12,7 @@
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag 'users_backoffice' %>
   </head>
-
   <body class="nav-md">
-
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col menu_fixed">
@@ -41,10 +39,16 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li>
-                    <a>
+                    <%= link_to  users_backoffice_welcome_index_path do %>
+                      <i class="fa fa-home"></i>
+                      Início
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to  users_backoffice_profile_path do %>
                       <i class="fa fa-user"></i>
                       Dados do Perfil
-                    </a>
+                    <% end %>
                   </li>
                 </ul>
               </div>
@@ -80,10 +84,7 @@
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
-              <div class="title_left">
-                <h1>Layout User Backoffice</h1>
-                <%= yield %>
-              </div>
+              <%= yield %>
             </div>
           </div>
         </div>

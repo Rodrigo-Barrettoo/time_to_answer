@@ -14,10 +14,14 @@
         <h5>
           <%= question.description %>
         </h5>
-        <%= link_to  "#{question.subject.description} (#{question.subject.questions_count})",
-          site_search_subject_path(question.subject_id, question.subject.description),
-          class: "badge bg-info p-2 text-light"
+        <%= link_to  site_search_subject_path(question.subject_id, question.subject.description),
+          class: "btn btn-info text-light" do
         %>
+          <%= question.subject.description  %>
+          <span class="badge badge-light">
+            <%= question.subject.questions_count %>
+          </span>
+        <% end %>
       </div>
       <div class="card-body">
         <h5 class="card-title">Respostas</h5>

@@ -46,12 +46,12 @@
                   <%= current_user.email %>
                 </a>
                 <div class="dropdown-menu mb-3" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to users_backoffice_welcome_index_path, class: "dropdown-item" do %>
+                  <%= link_to users_backoffice_welcome_index_path, class: "dropdown-item d-flex align-items-center justify-content-between" do %>
                     Perfil
                     <i class="fa fa-user-circle pull-right"></i>
                   <% end %>
                   <hr>
-                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item d-flex align-items-center justify-content-between" do %>
                     Sair
                     <i class="fa fa-sign-out pull-right"></i>
                   <% end %>
