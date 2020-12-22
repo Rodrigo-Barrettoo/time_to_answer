@@ -6,5 +6,6 @@
 //= require bootstrap/dist/js/bootstrap.bundle
 //= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min
 //= require nprogress/nprogress
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
 //= require custom
 //= require fastclick
