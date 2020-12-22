@@ -1,10 +1,16 @@
-var element = document.getElementById('submit_<%= @answer.question_id %>');
+var div = document.getElementById('div_<%= @answer.question_id %>');
+var button = document.getElementById('button_<%= @answer.question_id %>');
 
-element.classList.remove("success")
-element.classList.remove("danger")
+div.classList.remove("success")
+div.classList.remove("danger")
+
+button.classList.remove("btn-outline-secondary")
+button.classList.remove("btn-outline-success")
+button.classList.remove("btn-outline-danger")
 
 if (<%= @answer.correct %>) {
-  element.classList.add("success")
+  div.classList.add("success")
+  button.classList.add("btn-outline-success")
 
   $.bootstrapGrowl("Você Acertou!", {
     type: 'success', // (null, 'info', 'error', 'success')
@@ -13,7 +19,9 @@ if (<%= @answer.correct %>) {
     stackup_spacing: 10 // spacing between consecutively stacked growls.
   });
 } else {
-  element.classList.add("danger")
+  div.classList.add("danger")
+  button.classList.add("btn-outline-danger")
+
   $.bootstrapGrowl("Você Errou!", {
     type: 'danger', // (null, 'info', 'error', 'success')
     align: 'right', // ('left', 'right', or 'center')

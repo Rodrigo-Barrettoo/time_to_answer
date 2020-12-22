@@ -1,21 +1,23 @@
 <div class="jumbotron text-secondary shadow rounded bg-light">
+
   <div class="container">
-    <h3>Ultimas pergutas cadastradas...</h3>
-    <% if params[:term] %>
-      <strong>
-        <%= "Resutado para o termo: \"#{params[:term]}\"..." %>
-      </strong>
-    <% end %>
+    <h3>
+      <%= mdg_jumbotron %>
+    </h3>
   </div>
 </div>
 
 <% @questions.each do |question| %>
   <%= form_with url: site_answer_path do |f| %>
-    <div class="card mb-3 text-secondary" id="submit_<%= question.id%>">
+    <div class="card mb-3 text-secondary border-0" id="div_<%= question.id%>">
       <div class="card-header">
-        <h4>
+        <h5>
           <%= question.description %>
-        </h4>
+        </h5>
+          <%= link_to  question.subject.description,
+            site_search_subject_path(question.subject_id, question.subject.description),
+            class: "badge bg-info p-2 text-light"
+          %>
       </div>
       <div class="card-body">
         <h5 class="card-title">Respostas</h5>
@@ -33,7 +35,7 @@
             </li>
           <% end %>
           <li class="list-group-item pl-0">
-            <%= f.submit "Responder", class: "btn btn-outline-secondary" %>
+            <%= f.submit "Responder", class: "btn btn-outline-secondary", id:"button_#{question.id}" %>
           </li>
         </ul>
       </div>
