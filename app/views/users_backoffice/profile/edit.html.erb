@@ -48,6 +48,7 @@
         </div>
 
         <%= form.fields_for :user_profile do |f_profile| %>
+
           <div class="item form-group">
             <%= f_profile.label :addres, class:"col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6">
@@ -57,17 +58,45 @@
 
           <div class="item form-group">
             <%= f_profile.label :gender, class:"col-form-label col-md-3 col-sm-3 label-align" %>
-            <div class="col-md-6 col-sm-6">
-              <%= f_profile.text_field :gender, class: "form-control" %>
+            <div class="col-md-6 col-sm-6 ">
+              <div id="gender" class="btn-group" data-toggle="buttons">
+
+                <label class="btn <%= gender_select(@user, "M") %>" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                  <%= f_profile.radio_button :gender, "M", class: "join-btn", "data-parsley-multiple": "gender" %> &nbsp; Masculino &nbsp;
+                </label>
+
+                <label class="btn <%= gender_select(@user, "F") %>" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                  <%= f_profile.radio_button :gender, "F", class: "join-btn", "data-parsley-multiple": "gender" %> &nbsp; Feminino &nbsp;
+                </label>
+              </div>
             </div>
           </div>
+
+          <%= javascript_tag do %>
+            var labels = document.querySelectorAll('div#gender label')
+
+            labels.forEach((label) => {
+              label.addEventListener('click', () => {
+                label.classList.remove('btn-secondary');
+                label.classList.add('btn-primary');
+
+                labels.forEach((lab) => {
+                  if (lab !== label) {
+                    lab.classList.remove('btn-primary');
+                    lab.classList.add('btn-secondary');
+                  }
+                })
+              });
+            });
+          <% end %>
 
           <div class="item form-group">
             <%= f_profile.label :birthdate, class:"col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6">
-              <%= f_profile.text_field :birthdate, class: "form-control" %>
+              <%= f_profile.date_field :birthdate, class: "form-control" %>
             </div>
           </div>
+
         <% end %>
 
         <div class="item form-group">
