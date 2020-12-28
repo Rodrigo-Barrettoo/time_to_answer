@@ -25,6 +25,7 @@ Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-2.css
                                                   custom.js custom.css
                                                   myStyles.css
                                                   img.jpg
+                                                  adora.io_perfil.png
                                                 )
 
 
