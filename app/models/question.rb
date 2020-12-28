@@ -5,6 +5,8 @@ class Question < ApplicationRecord
 
   paginates_per 5
 
+  # Callback
+  after_create :set_statistic
 
   scope :search_subject, -> (page, subject_id) {
     includes(:answers, :subject)
@@ -21,4 +23,10 @@ class Question < ApplicationRecord
   scope :last_questions, -> (page) {
     includes(:answers, :subject).order("created_at desc").page(page)
   }
+
+  private
+
+  def set_statistic
+    AdminStatistic.set_event(AdminStatistic::EVENTS[:total_questions])
+  end
 end
