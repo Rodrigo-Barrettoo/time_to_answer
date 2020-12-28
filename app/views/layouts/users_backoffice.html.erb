@@ -24,7 +24,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <%= image_tag(avatar_url, alt: "...", class: "img-circle profile_img btn", "data-toggle": "modal", "data-target": "#img_modal") %>
+                <%= image_tag(avatar_url, alt: "...", id: "avatar-image-lg", class: "img-circle profile_img btn", "data-toggle": "modal", "data-target": "#myModal") %>
               </div>
               <div class="profile_info">
                 <span>Seja bem vindo!</span>
@@ -68,7 +68,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <%= image_tag(avatar_url, alt: "...") %>
+                    <%= image_tag(avatar_url, alt: "...", id: "avatar-image-sm") %>
                     <%= current_user.full_name %>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
@@ -104,11 +104,11 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="img_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
 
-          <%= form_with(url: users_backoffice_profile_path, model: current_user, local: true, class: "form-horizontal form-label-left") do |form| %>
+          <%= form_with(url: users_backoffice_profile_path, model: current_user, method: :patch, remote: true, class: "form-horizontal form-label-left") do |form| %>
 
             <%= form.fields_for :user_profile do |f_profile| %>
               <div class="modal-header">
@@ -122,7 +122,7 @@
 
               <div class="modal-body">
                 <div class="item form-group d-flex flex-column">
-                  <%= image_tag(avatar_url, alt: "...", class: "rounded") %>
+                  <%= image_tag(avatar_url, alt: "...", id: "avatar-image-modal", class: "rounded") %>
 
                   <hr>
 
